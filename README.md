@@ -17,3 +17,7 @@
 - `jj` `jk`快速退出`insert`模式
 - `<leader>+h/<leader>+l`快速跳转到行首/行尾非空字符
 - ``<leader>+\`(反引号)``聚焦到终端
+- `<leader>+f/<leader>+F`被修改为Vim扩展easyMotion的功能
+  - `<leader>+f` 向前搜索任意字符，跳转
+  - `<leader>+F` 向后搜索任意字符，跳转
+- `s{char}{char}`被修改为Vim扩展vim-sneak的快捷键
