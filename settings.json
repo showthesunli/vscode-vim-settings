@@ -1,0 +1,163 @@
+{
+  // 在单独的进程中运行vim插件，开启此选项会使得vim运行更快，但每次修改settings.json就会重新加载vim插件
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  // 在vim的不同模式时(normal, insert, etc...)，更改status bar的颜色
+  // 此选项会实时修改settings.json中关于statusbar的颜色配置，对性能有影响，不在乎的可以开启
+  // "vim.statusBarColorControl": true,
+
+  // yank时，高亮选中的行
+  "vim.highlightedyank.enable": true,
+  // yank时，高亮持续的时间
+  "vim.highlightedyank.duration": 2000,
+
+  // 此处的设置为false时，vim不处理快捷键，改为vscode自身处理
+  "vim.handleKeys": {
+    "<C-d>": false,
+    "<C-u>": false,
+    "<C-s>": false,
+    "<C-z>": false,
+    "<C-f>": false
+  },
+  // normal 模式下，#为向上搜索当前光标下的文本，*为向下搜索当前光标下的文本
+  // 此选项开启时，#和*改为搜索visual模式下选中的文本
+  "vim.visualstar": true,
+  // 常住搜索高亮（使用/{partten}/之后，高亮不会消失）
+  "vim.hlsearch": true,
+  // 开启surround插件
+  "vim.surround": true,
+  // 开启easymotion插件
+  "vim.easymotion": true,
+  // 开启sneak插件
+  "vim.sneak": true,
+  // 使用系统剪贴板
+  "vim.useSystemClipboard": true,
+  // 智能行号
+  "vim.smartRelativeLine": true,
+  // 不使用 ctrl 键
+  "vim.useCtrlKeys": false,
+  // leader key 设置为空格
+  "vim.leader": "<space>",
+  // 插入模式下的键绑定，快速按 jj 或者 jk 退出插入模式
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  // 普通模式下的键绑定
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // 跳转到行首第一个非空字符
+    {
+      "before": ["<leader>", "h"],
+      "after": ["^"]
+    },
+    // 跳转到行尾非空字符
+    {
+      "before": ["<leader>", "l"],
+      "after": ["g", "_"]
+    },
+    // 进入块可视化模式，blockwise visual mode
+    {
+      "before": ["<leader>", "v"],
+      "after": ["<C-v>"]
+    },
+    // 聚焦到终端
+    // VSCode默认切换终端是<C-j>,但此时有可能没有聚焦到终端
+    {
+      "before": ["<leader>", "`"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    // 取消搜索高亮
+    // 配合vim.hlsearch=true使用
+    {
+      "before": ["<leader>", "n"],
+      "commands": [":nohl"]
+    },
+    // 变量符号重命名
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    // 转到引用
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    // 切换最左侧图标面板可见性
+    {
+      "before": ["<leader>", "s", "a"],
+      "commands": ["workbench.action.toggleActivityBarVisibility"]
+    },
+    // 打开文件浏览器
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    // 组中上一个标签页
+    {
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditorInGroup"]
+    },
+    // 组中下一个标签页
+    {
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditorInGroup"]
+    },
+    // 关闭标签组
+    {
+      "before": ["<leader>", "g", "c"],
+      "commands": ["workbench.action.closeEditorsInGroup"]
+    },
+    // 移动到上一个标签组
+    {
+      "before": ["<leader>", "H"],
+      "commands": ["workbench.action.moveEditorToPreviousGroup"]
+    },
+    // 移动到下一个标签组
+    {
+      "before": ["<leader>", "L"],
+      "commands": ["workbench.action.moveEditorToNextGroup"]
+    },
+    // 全部折叠
+    {
+      "before": ["<leader>", "z", "c"],
+      "commands": ["editor.foldAll"]
+    },
+    // 全部展开
+    {
+      "before": ["<leader>", "z", "o"],
+      "commands": ["editor.unfoldAll"]
+    },
+    // 向下滚动多行
+    {
+      "before": ["J"],
+      "after": ["9", "j"]
+    },
+    // 向上滚动多行
+    {
+      "before": ["K"],
+      "after": ["9", "k"]
+    },
+    // 删除结尾换行符
+    {
+      "before": ["<leader>", "j"],
+      "after": ["J"]
+    },
+    // easy motion 中的常用命令，向前搜索单词
+    {
+      "before": ["<leader>", "f"],
+      "after": ["<leader>", "<leader>", "f"]
+    },
+    // easy motion 中的常用命令，向后搜索单词
+    {
+      "before": ["<leader>", "F"],
+      "after": ["<leader>", "<leader>", "F"]
+    }
+  ]
+}
